@@ -1,20 +1,27 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment, useEffect } from "react";
 import { Button, PageHeader } from "antd";
 import Table from "../components/Table";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import { useAppContext } from "../useAppContext";
 
 const HomePage = () => {
+  const { appData, setAppData } = useAppContext();
+
   const history = useHistory();
-  const [data, setData] = useState([]);
 
   useEffect(() => {
-    const getData = async () => {
-      const result = await axios.get("https://reqres.in/api/users");
-      setData(result.data.data);
-    };
-    getData();
+    if (appData === null) {
+      const getData = async () => {
+        const result = await axios.get("https://reqres.in/api/users");
+        setAppData(result.data.data);
+      };
+      getData();
+    }
+    // eslint-disable-next-line
   }, []);
+
+  if (appData === null) return null;
 
   return (
     <Fragment>
@@ -33,7 +40,7 @@ const HomePage = () => {
         >
           Add user
         </Button>
-        <Table data={data} />
+        <Table data={appData} />
       </main>
     </Fragment>
   );

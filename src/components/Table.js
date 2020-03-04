@@ -3,9 +3,11 @@ import { Table as AntdTable, Modal, message } from "antd";
 import { ExclamationCircleOutlined } from "@ant-design/icons";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+import { useAppContext } from "../useAppContext";
 
 const Table = ({ data = [] }) => {
   const history = useHistory();
+  const { setAppData } = useAppContext();
 
   const handleDelete = id => {
     Modal.confirm({
@@ -18,6 +20,7 @@ const Table = ({ data = [] }) => {
         const updateData = async () => {
           try {
             await axios.delete(`https://reqres.in/api/users/${id}`);
+            setAppData(data.filter(item => item.id !== id));
             message.success("Item successfully deleted!");
           } catch {
             message.error("Something went wrong!");

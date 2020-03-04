@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import Loadable from "react-loadable";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "antd/dist/antd.css";
+import { AppProvider } from "./provider";
 
 const rootElement = document.getElementById("root");
 
@@ -22,18 +23,20 @@ const EditPage = Loadable({
 });
 
 ReactDOM.render(
-  <Router>
-    <Switch>
-      <Route exact path="/">
-        <HomePage />
-      </Route>
-      <Route path="/add">
-        <AddPage />
-      </Route>
-      <Route path="/edit/:id">
-        <EditPage />
-      </Route>
-    </Switch>
-  </Router>,
+  <AppProvider>
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <HomePage />
+        </Route>
+        <Route path="/add">
+          <AddPage />
+        </Route>
+        <Route path="/edit/:id">
+          <EditPage />
+        </Route>
+      </Switch>
+    </Router>
+  </AppProvider>,
   rootElement
 );
