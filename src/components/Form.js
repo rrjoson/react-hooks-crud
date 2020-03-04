@@ -15,7 +15,7 @@ const Form = ({ onSubmit, data, editting, onChange, loading, fetching }) => {
         }}
       >
         <Col span={24}>
-          <label for="firstName">First Name</label>
+          <label htmlFor="firstName">First Name</label>
           <Input
             id="firstName"
             type="text"
@@ -36,7 +36,7 @@ const Form = ({ onSubmit, data, editting, onChange, loading, fetching }) => {
           marginBottom: 16
         }}
       >
-        <label for="lastName">Last Name</label>
+        <label htmlFor="lastName">Last Name</label>
         <Input
           id="lastName"
           type="text"
