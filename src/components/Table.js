@@ -47,7 +47,7 @@ const Table = ({ data = [] }) => {
       title: "Action",
       key: "action",
       render: item => (
-        <span>
+        <span key={item.id}>
           {/* eslint-disable-next-line */}
           <a
             style={{ marginRight: 16 }}

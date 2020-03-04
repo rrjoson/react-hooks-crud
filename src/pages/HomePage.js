@@ -14,7 +14,16 @@ const HomePage = () => {
     if (appData === null) {
       const getData = async () => {
         const result = await axios.get("https://reqres.in/api/users");
-        setAppData(result.data.data);
+        setAppData(
+          result.data.data.map(item => {
+            return {
+              key: item.id,
+              id: item.id,
+              first_name: item.first_name,
+              last_name: item.last_name
+            };
+          })
+        );
       };
       getData();
     }

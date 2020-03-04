@@ -23,6 +23,7 @@ const AddPage = () => {
         setAppData([
           ...appData,
           {
+            key: appData.length + 1,
             id: appData.length + 1,
             ...data
           }
