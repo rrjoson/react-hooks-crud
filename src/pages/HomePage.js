@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect } from "react";
 import { Button, PageHeader } from "antd";
-import Table from "../Table";
+import Table from "../components/Table";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 
