@@ -25,7 +25,7 @@ const Form = ({ onSubmit, data, editting, onChange, loading, fetching }) => {
             onChange={e =>
               onChange({
                 ...data,
-                name: e.target.value
+                first_name: e.target.value
               })
             }
           />
@@ -46,7 +46,7 @@ const Form = ({ onSubmit, data, editting, onChange, loading, fetching }) => {
           onChange={e =>
             onChange({
               ...data,
-              job: e.target.value
+              last_name: e.target.value
             })
           }
         />
