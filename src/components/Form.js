@@ -21,7 +21,7 @@ const Form = ({ onSubmit, data, editting, onChange, loading, fetching }) => {
             type="text"
             required
             disabled={fetching}
-            value={data && data.name}
+            value={data && data.first_name}
             onChange={e =>
               onChange({
                 ...data,
@@ -42,7 +42,7 @@ const Form = ({ onSubmit, data, editting, onChange, loading, fetching }) => {
           type="text"
           required
           disabled={fetching}
-          value={data && data.job}
+          value={data && data.last_name}
           onChange={e =>
             onChange({
               ...data,
